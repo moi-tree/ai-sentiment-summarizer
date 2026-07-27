@@ -6,20 +6,16 @@ st.set_page_config(page_title="AI Text Insights", page_icon="🤖")
 st.title("🤖 AI Text Summarizer & Sentiment Analyzer")
 st.write("Powered by Hugging Face Transformers & Streamlit")
 
-# Load Hugging Face pipelines with explicit models
+# Load Hugging Face models using explicit tasks and lightweight checkpoints
 @st.cache_resource
 def load_models():
-    # Explicit sentiment model
     sentiment_model = pipeline(
-        "sentiment-analysis", 
-        model="distilbert/distilbert-base-uncased-finetuned-sst-2-english",
-        framework="pt"
+        task="text-classification",
+        model="distilbert/distilbert-base-uncased-finetuned-sst-2-english"
     )
-    # Explicit summarizer model
     summarizer_model = pipeline(
-        "summarization", 
-        model="sshleifer/distilbart-cnn-12-6",
-        framework="pt"
+        task="summarization",
+        model="sshleifer/distilbart-cnn-12-6"
     )
     return sentiment_model, summarizer_model
 
