@@ -9,12 +9,9 @@ st.write("Powered by Hugging Face Transformers & Streamlit")
 # 2. Load AI Models (Cached so they don't reload on every button click)
 @st.cache_resource
 def load_models():
-    # Default sentiment model
     sentiment_model = pipeline("sentiment-analysis")
-    # Lightweight summarizer model
-    summarizer_model = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
+    summarizer_model = pipeline("summarization", model="facebook/bart-large-cnn")
     return sentiment_model, summarizer_model
-
 sentiment_pipe, summarizer_pipe = load_models()
 
 # 3. Build User Interface
