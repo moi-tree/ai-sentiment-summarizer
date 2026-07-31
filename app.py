@@ -10,10 +10,10 @@ st.write("Powered by Hugging Face Transformers & Streamlit")
 # Load Hugging Face models reliably using explicit classes
 @st.cache_resource
 def load_models():
-    # 1. Sentiment Analysis Pipeline
+    # 1. 3-Class Sentiment Analysis Pipeline (Positive, Neutral, Negative)
     sentiment_pipe = pipeline(
         task="text-classification",
-        model="distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+        model="cardiffnlp/twitter-roberta-base-sentiment-latest",
     )
 
     # 2. Summarizer using explicit tokenizer & model (prevents KeyError on pipeline)
@@ -36,8 +36,11 @@ if st.button("Analyze & Summarize"):
         with col1:
             st.subheader("📊 Sentiment Analysis")
             sentiment = sentiment_pipe(user_text)[0]
-            label = sentiment["label"]
+
+            # Format output label cleanly (e.g., 'neutral' -> 'NEUTRAL')
+            label = sentiment["label"].upper()
             score = round(sentiment["score"] * 100, 2)
+
             st.metric("Tone", label, f"{score}% confidence")
 
         with col2:
