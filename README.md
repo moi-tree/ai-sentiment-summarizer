@@ -1,6 +1,12 @@
-# 🤖 AI Text Summarizer & Sentiment Analyzer
 
-A lightweight, end-to-end NLP application built with **Python**, **Hugging Face Transformers**, and **Streamlit**. 
+# 🤖 AI Text Summarizer & Sentiment Analyzer
+ 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-sentiment-summarizer-kbhk6hyu6zedieydwvbyey.streamlit.app/)
+
+> A lightweight, end-to-end NLP application built with **Python**, **Hugging Face Transformers**, and **Streamlit**. 
+
+🚀 **[Click Here to Launch Live Demo](https://ai-sentiment-summarizer-kbhk6hyu6zedieydwvbyey.streamlit.app/)**
+
 
 ## ✨ Features
 - **Sentiment Detection:** Classifies text tone (Positive/Negative) with confidence metrics.
